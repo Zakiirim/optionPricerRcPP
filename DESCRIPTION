@@ -1,12 +1,11 @@
-Package: optionPricer
+Package: putOptionPricer
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Price a put option using Monte Carlo.
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Raffaele di Costanzo
+Maintainer: Raffaele di Costanzo <raffdicostanzo77@gmail.com>
+Description: It uses Monte Carlo model to price the option with down-and-in strategy.
+License: No license.
 Encoding: UTF-8
 LazyData: true
 Imports: Rcpp (>= 1.0.8)
