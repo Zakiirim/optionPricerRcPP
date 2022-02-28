@@ -10,9 +10,9 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
-// runMonteCarlo
-double runMonteCarlo(double Expiry, double Strike, double Spot, double Vol, double r, unsigned long NumberOfPaths, double barrier);
-RcppExport SEXP _optionPricer_runMonteCarlo(SEXP ExpirySEXP, SEXP StrikeSEXP, SEXP SpotSEXP, SEXP VolSEXP, SEXP rSEXP, SEXP NumberOfPathsSEXP, SEXP barrierSEXP) {
+// runMonteCarlo_
+double runMonteCarlo_(double Expiry, double Strike, double Spot, double Vol, double r, unsigned long NumberOfPaths, double barrier);
+RcppExport SEXP _optionPricer_runMonteCarlo_(SEXP ExpirySEXP, SEXP StrikeSEXP, SEXP SpotSEXP, SEXP VolSEXP, SEXP rSEXP, SEXP NumberOfPathsSEXP, SEXP barrierSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -23,13 +23,13 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< double >::type r(rSEXP);
     Rcpp::traits::input_parameter< unsigned long >::type NumberOfPaths(NumberOfPathsSEXP);
     Rcpp::traits::input_parameter< double >::type barrier(barrierSEXP);
-    rcpp_result_gen = Rcpp::wrap(runMonteCarlo(Expiry, Strike, Spot, Vol, r, NumberOfPaths, barrier));
+    rcpp_result_gen = Rcpp::wrap(runMonteCarlo_(Expiry, Strike, Spot, Vol, r, NumberOfPaths, barrier));
     return rcpp_result_gen;
 END_RCPP
 }
-// getMonteCarloTrend
-std::vector<double> getMonteCarloTrend(double Expiry, double Strike, double Spot, double Vol, double r, unsigned long NumberOfPaths, double barrier);
-RcppExport SEXP _optionPricer_getMonteCarloTrend(SEXP ExpirySEXP, SEXP StrikeSEXP, SEXP SpotSEXP, SEXP VolSEXP, SEXP rSEXP, SEXP NumberOfPathsSEXP, SEXP barrierSEXP) {
+// getMonteCarloTrend_
+std::vector<double> getMonteCarloTrend_(double Expiry, double Strike, double Spot, double Vol, double r, unsigned long NumberOfPaths, double barrier);
+RcppExport SEXP _optionPricer_getMonteCarloTrend_(SEXP ExpirySEXP, SEXP StrikeSEXP, SEXP SpotSEXP, SEXP VolSEXP, SEXP rSEXP, SEXP NumberOfPathsSEXP, SEXP barrierSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -40,14 +40,14 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< double >::type r(rSEXP);
     Rcpp::traits::input_parameter< unsigned long >::type NumberOfPaths(NumberOfPathsSEXP);
     Rcpp::traits::input_parameter< double >::type barrier(barrierSEXP);
-    rcpp_result_gen = Rcpp::wrap(getMonteCarloTrend(Expiry, Strike, Spot, Vol, r, NumberOfPaths, barrier));
+    rcpp_result_gen = Rcpp::wrap(getMonteCarloTrend_(Expiry, Strike, Spot, Vol, r, NumberOfPaths, barrier));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_optionPricer_runMonteCarlo", (DL_FUNC) &_optionPricer_runMonteCarlo, 7},
-    {"_optionPricer_getMonteCarloTrend", (DL_FUNC) &_optionPricer_getMonteCarloTrend, 7},
+    {"_optionPricer_runMonteCarlo_", (DL_FUNC) &_optionPricer_runMonteCarlo_, 7},
+    {"_optionPricer_getMonteCarloTrend_", (DL_FUNC) &_optionPricer_getMonteCarloTrend_, 7},
     {NULL, NULL, 0}
 };
 

@@ -9,6 +9,7 @@ std::vector<double> getMonteCarloTrend(double Expiry,
 						    double Spot,
 						    double Vol,
 						    double r,
-						    unsigned long int NumberOfPaths);
+						    unsigned long int NumberOfPaths,
+						    double barrier);
 
 #endif

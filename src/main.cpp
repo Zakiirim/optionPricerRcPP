@@ -20,7 +20,8 @@ double runMonteCarlo_(
                                        Spot,
                                        Vol,
                                        r,
-                                       NumberOfPaths);
+                                       NumberOfPaths,
+                                       barrier);
 
 	return result;
 }
@@ -39,7 +40,8 @@ std::vector<double> getMonteCarloTrend_(
                                 Spot,
                                 Vol,
                                 r,
-                                NumberOfPaths);
+                                NumberOfPaths,
+                                barrier);
 
   return result;
 }
