@@ -10,9 +10,9 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
-// getPutOptionPrice
-double getPutOptionPrice(double Expiry, double Strike, double Spot, double Vol, double r, unsigned long NumberOfPaths, double barrier);
-RcppExport SEXP _putOptionPricer_getPutOptionPrice(SEXP ExpirySEXP, SEXP StrikeSEXP, SEXP SpotSEXP, SEXP VolSEXP, SEXP rSEXP, SEXP NumberOfPathsSEXP, SEXP barrierSEXP) {
+// runMonteCarlo
+double runMonteCarlo(double Expiry, double Strike, double Spot, double Vol, double r, unsigned long NumberOfPaths, double barrier);
+RcppExport SEXP _optionPricer_runMonteCarlo(SEXP ExpirySEXP, SEXP StrikeSEXP, SEXP SpotSEXP, SEXP VolSEXP, SEXP rSEXP, SEXP NumberOfPathsSEXP, SEXP barrierSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -23,13 +23,13 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< double >::type r(rSEXP);
     Rcpp::traits::input_parameter< unsigned long >::type NumberOfPaths(NumberOfPathsSEXP);
     Rcpp::traits::input_parameter< double >::type barrier(barrierSEXP);
-    rcpp_result_gen = Rcpp::wrap(getPutOptionPrice(Expiry, Strike, Spot, Vol, r, NumberOfPaths, barrier));
+    rcpp_result_gen = Rcpp::wrap(runMonteCarlo(Expiry, Strike, Spot, Vol, r, NumberOfPaths, barrier));
     return rcpp_result_gen;
 END_RCPP
 }
-// getPutOptionPath
-vector<double> getPutOptionPath(double Expiry, double Strike, double Spot, double Vol, double r, unsigned long NumberOfPaths);
-RcppExport SEXP _putOptionPricer_getPutOptionPath(SEXP ExpirySEXP, SEXP StrikeSEXP, SEXP SpotSEXP, SEXP VolSEXP, SEXP rSEXP, SEXP NumberOfPathsSEXP) {
+// getMonteCarloTrend
+std::vector<double> getMonteCarloTrend(double Expiry, double Strike, double Spot, double Vol, double r, unsigned long NumberOfPaths, double barrier);
+RcppExport SEXP _optionPricer_getMonteCarloTrend(SEXP ExpirySEXP, SEXP StrikeSEXP, SEXP SpotSEXP, SEXP VolSEXP, SEXP rSEXP, SEXP NumberOfPathsSEXP, SEXP barrierSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -39,29 +39,19 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< double >::type Vol(VolSEXP);
     Rcpp::traits::input_parameter< double >::type r(rSEXP);
     Rcpp::traits::input_parameter< unsigned long >::type NumberOfPaths(NumberOfPathsSEXP);
-    rcpp_result_gen = Rcpp::wrap(getPutOptionPath(Expiry, Strike, Spot, Vol, r, NumberOfPaths));
-    return rcpp_result_gen;
-END_RCPP
-}
-// rcpp_hello
-List rcpp_hello();
-RcppExport SEXP _putOptionPricer_rcpp_hello() {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    rcpp_result_gen = Rcpp::wrap(rcpp_hello());
+    Rcpp::traits::input_parameter< double >::type barrier(barrierSEXP);
+    rcpp_result_gen = Rcpp::wrap(getMonteCarloTrend(Expiry, Strike, Spot, Vol, r, NumberOfPaths, barrier));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_putOptionPricer_getPutOptionPrice", (DL_FUNC) &_putOptionPricer_getPutOptionPrice, 7},
-    {"_putOptionPricer_getPutOptionPath", (DL_FUNC) &_putOptionPricer_getPutOptionPath, 6},
-    {"_putOptionPricer_rcpp_hello", (DL_FUNC) &_putOptionPricer_rcpp_hello, 0},
+    {"_optionPricer_runMonteCarlo", (DL_FUNC) &_optionPricer_runMonteCarlo, 7},
+    {"_optionPricer_getMonteCarloTrend", (DL_FUNC) &_optionPricer_getMonteCarloTrend, 7},
     {NULL, NULL, 0}
 };
 
-RcppExport void R_init_putOptionPricer(DllInfo *dll) {
+RcppExport void R_init_optionPricer(DllInfo *dll) {
     R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
     R_useDynamicSymbols(dll, FALSE);
 }

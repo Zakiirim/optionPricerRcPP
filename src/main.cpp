@@ -1,13 +1,13 @@
 #include <Rcpp.h>
-#include "runSimpleMonteCarlo.h"
-#include "getMonteCarloPath.h"
+#include "runMonteCarlo.h"
+#include "getMonteCarloTrend.h"
 #include <vector>
 
 using namespace Rcpp;
 using namespace std;
 
 // [[Rcpp::export]]
-double getPutOptionPrice(
+double runMonteCarlo1(
     double Expiry = 0.5,
     double Strike = 100,
     double Spot   = 105,
@@ -15,32 +15,31 @@ double getPutOptionPrice(
     double r      = 0.05,
     unsigned long NumberOfPaths = 10000,
     double barrier = 150){
-  double result = runSimpleMonteCarlo(Expiry,
+  double result = runMonteCarlo(Expiry,
                                        Strike,
                                        Spot,
                                        Vol,
                                        r,
-                                       NumberOfPaths,
-                                       barrier);
+                                       NumberOfPaths);
 
 	return result;
 }
 
-
 // [[Rcpp::export]]
-vector<double> getPutOptionPath(
+std::vector<double> getMonteCarloTrend1(
     double Expiry = 0.5,
     double Strike = 100,
     double Spot   = 105,
     double Vol    = 0.22,
     double r      = 0.05,
-    unsigned long NumberOfPaths = 10000){
-  vector<double> result = getMonteCarloPath(Expiry,
-                                      Strike,
-                                      Spot,
-                                      Vol,
-                                      r,
-                                      NumberOfPaths);
+    unsigned long NumberOfPaths = 10000,
+    double barrier = 150){
+  std::vector<double> result = getMonteCarloTrend(Expiry,
+                                Strike,
+                                Spot,
+                                Vol,
+                                r,
+                                NumberOfPaths);
 
   return result;
 }

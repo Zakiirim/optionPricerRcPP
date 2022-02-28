@@ -1,10 +1,10 @@
-#ifndef GETMONTECARLOPATH_H
-#define GETMONTECARLOPATH_H
+#ifndef GETMONTECARLOTREND_H
+#define GETMONTECARLOTREND_H
 
 #include <vector>
 
 // prototype of the function
-std::vector<double> getMonteCarloPath(double Expiry,
+std::vector<double> getMonteCarloTrend(double Expiry,
 						    double Strike,
 						    double Spot,
 						    double Vol,

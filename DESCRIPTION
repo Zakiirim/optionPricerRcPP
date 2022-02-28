@@ -1,4 +1,4 @@
-Package: putOptionPricer
+Package: optionPricer
 Type: Package
 Title: Price a put option using Monte Carlo.
 Version: 0.1.0
