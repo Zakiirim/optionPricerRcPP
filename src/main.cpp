@@ -7,7 +7,7 @@ using namespace Rcpp;
 using namespace std;
 
 // [[Rcpp::export]]
-double runMonteCarlo1(
+double runMonteCarlo_(
     double Expiry = 0.5,
     double Strike = 100,
     double Spot   = 105,
@@ -26,7 +26,7 @@ double runMonteCarlo1(
 }
 
 // [[Rcpp::export]]
-std::vector<double> getMonteCarloTrend1(
+std::vector<double> getMonteCarloTrend_(
     double Expiry = 0.5,
     double Strike = 100,
     double Spot   = 105,

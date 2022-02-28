@@ -12,12 +12,10 @@ std::vector<double> getMonteCarloTrend(double Expiry,
 						    double r,
 						    unsigned long int NumberOfPaths){
 
-  std::cout << "Hello!" << std::endl;
   double exp = 0.0;
   std::vector<double> result;
 
   while (exp <= Expiry){
-    std::cout << exp << std::endl;
     result.push_back(runMonteCarlo(exp, Strike, Spot, Vol, r, NumberOfPaths));
     exp = exp + 0.1;
   }
